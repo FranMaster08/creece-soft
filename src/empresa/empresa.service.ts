@@ -1,23 +1,23 @@
 import { Injectable } from '@nestjs/common';
-import { CreateEmpresaDto } from './dto/create-empresa.dto';
-import { UpdateEmpresaDto } from './dto/update-empresa.dto';
+import { EmpresaDto } from './dto/empresa.dto';
+import { Empresa } from './entities/empresa.entity';
 
 @Injectable()
 export class EmpresaService {
-  create(createEmpresaDto: CreateEmpresaDto) {
-    return 'This action adds a new empresa';
+  create(createEmpresaDto: EmpresaDto): Empresa {
+    return new Empresa();
   }
 
-  findAll() {
-    return `This action returns all empresa`;
+  findAll(): Array<Empresa> {
+    return [];
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} empresa`;
+  findOne(id: number): Empresa {
+    return new Empresa();
   }
 
-  update(id: number, updateEmpresaDto: UpdateEmpresaDto) {
-    return `This action updates a #${id} empresa`;
+  update(id: number, updateEmpresaDto: EmpresaDto): Empresa {
+    return new Empresa();
   }
 
   remove(id: number) {
