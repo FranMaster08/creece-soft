@@ -23,13 +23,13 @@ export class EmpresaController {
   }
 
   @Get()
-  findAll(): Array<Empresa> {
+  findAll(): Promise<Array<Empresa>> {
     return this.empresaService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string): Empresa {
-    return this.empresaService.findOne(+id);
+  @Get(':nit')
+  findOne(@Param('nit') nit: string): Promise<Empresa> {
+    return this.empresaService.findOne(nit);
   }
 
   @Patch(':id')

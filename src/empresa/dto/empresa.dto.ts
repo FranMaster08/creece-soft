@@ -2,7 +2,7 @@ import { ApiProperty } from '@nestjs/swagger';
 
 export class EmpresaDto {
   @ApiProperty()
-  gestor: number;
+  gestor: string;
   @ApiProperty()
   nit_rut: string;
   @ApiProperty()

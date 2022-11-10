@@ -1,0 +1,15 @@
+CREATE TABLE `creecedb`.`empresa` (
+  `id` VARCHAR(255) NOT NULL,
+  `gestor` VARCHAR(255) NULL,
+  `nit_rut` VARCHAR(255) NULL,
+  `nombre_comercial_del_negocio` VARCHAR(255) NULL,
+  `contacto` VARCHAR(255) NULL,
+  `correo_electronico` VARCHAR(255) NULL,
+  `ciudad` VARCHAR(255) NULL,
+  `nombre_empresario` VARCHAR(255) NULL,
+  `direccion` VARCHAR(255) NULL,
+  `doc_identidad` VARCHAR(255) NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC),
+  UNIQUE INDEX `nit_rut_UNIQUE` (`nit_rut` ASC),
+  UNIQUE INDEX `correo_electronico_UNIQUE` (`correo_electronico` ASC));
