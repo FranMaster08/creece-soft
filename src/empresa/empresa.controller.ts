@@ -36,12 +36,12 @@ export class EmpresaController {
   update(
     @Param('id') id: string,
     @Body() updateEmpresaDto: EmpresaDto,
-  ): Empresa {
-    return this.empresaService.update(+id, updateEmpresaDto);
+  ): Promise<Empresa> {
+    return this.empresaService.update(id, updateEmpresaDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.empresaService.remove(+id);
+    return this.empresaService.remove(id);
   }
 }

@@ -50,12 +50,26 @@ export class EmpresaService {
     });
   }
 
-  update(id: number, updateEmpresaDto: EmpresaDto): Empresa {
-    return new Empresa();
+  update(id: string, updateEmpresaDto: EmpresaDto): Promise<Empresa> {
+    return new Promise<any>(async (resolve, reject) => {
+      try {
+        const data = await this.empresaRepository.update(id, updateEmpresaDto);
+        resolve(data);
+      } catch (error) {
+        reject(error);
+      }
+    });
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} empresa`;
+  remove(id: string) {
+    return new Promise<any>(async (resolve, reject) => {
+      try {
+        const data = await this.empresaRepository.delete(id);
+        resolve(data);
+      } catch (error) {
+        reject(error);
+      }
+    });
   }
 
   covertDtoToEntity(empresaDto: EmpresaDto): Empresa {
@@ -70,6 +84,7 @@ export class EmpresaService {
     empresa.nombre_comercial_del_negocio =
       empresaDto.nombre_comercial_del_negocio;
     empresa.nombre_empresario = empresaDto.nombre_empresario;
+    //TODO: Investigar mejor forma de agregar hora de creacion , cuando se actualiza se borra
     empresa.createdAt = new Date();
     empresa.updatedAt = new Date();
     return empresa;
