@@ -40,7 +40,7 @@ export class EmpresaService {
       try {
         const data = await this.empresaRepository.findOne({
           where: {
-            nit_rut: nit,
+            id: nit,
           },
         });
         resolve(data);
@@ -50,11 +50,14 @@ export class EmpresaService {
     });
   }
 
-  update(id: string, updateEmpresaDto: EmpresaDto): Promise<Empresa> {
+  update(id: string, updateEmpresaDto: EmpresaDto): Promise<any> {
     return new Promise<any>(async (resolve, reject) => {
       try {
-        const data = await this.empresaRepository.update(id, updateEmpresaDto);
-        resolve(data);
+        await this.empresaRepository.update(id, updateEmpresaDto);
+        const validFormat = {
+          data: this.covertDtoToEntity(updateEmpresaDto),
+        };
+        resolve({ id, ...validFormat });
       } catch (error) {
         reject(error);
       }

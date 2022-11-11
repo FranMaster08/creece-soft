@@ -6,6 +6,7 @@ import {
   Patch,
   Param,
   Delete,
+  Put,
 } from '@nestjs/common';
 import { EmpresaService } from './empresa.service';
 import { EmpresaDto } from './dto/empresa.dto';
@@ -27,12 +28,12 @@ export class EmpresaController {
     return this.empresaService.findAll();
   }
 
-  @Get(':nit')
-  findOne(@Param('nit') nit: string): Promise<Empresa> {
+  @Get(':id')
+  findOne(@Param('id') nit: string): Promise<Empresa> {
     return this.empresaService.findOne(nit);
   }
 
-  @Patch(':id')
+  @Put(':id')
   update(
     @Param('id') id: string,
     @Body() updateEmpresaDto: EmpresaDto,

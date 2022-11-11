@@ -1,7 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AppModule } from './app.module';
-import cors from 'cors';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -11,8 +10,7 @@ async function bootstrap() {
 
   app.use((req, res, next) => {
     res.set('Access-Control-Expose-Headers', 'Content-Range');
-
-    res.set('Content-Range', 'bytes : 0-9/*');
+    res.set('Content-Range', 'bytes : 0-20/20');
     next();
   });
 
