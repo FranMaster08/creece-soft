@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { EmpresaDto } from './dto/empresa.dto';
-import { Empresa } from './entities/empresa.entity';
+import { InformacionGeneral as Empresa } from '../entities/InformacionGeneral';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
@@ -79,14 +79,13 @@ export class EmpresaService {
     const empresa = new Empresa();
     empresa.ciudad = empresaDto.ciudad;
     empresa.contacto = empresaDto.contacto;
-    empresa.correo_electronico = empresaDto.correo_electronico;
+    empresa.correoElectronico = empresaDto.correo_electronico;
     empresa.direccion = empresaDto.direccion;
-    empresa.doc_identidad = empresaDto.doc_identidad;
+    empresa.docIdentidad = empresaDto.doc_identidad;
     empresa.gestor = empresaDto.gestor;
-    empresa.nit_rut = empresaDto.nit_rut;
-    empresa.nombre_comercial_del_negocio =
-      empresaDto.nombre_comercial_del_negocio;
-    empresa.nombre_empresario = empresaDto.nombre_empresario;
+    empresa.nitRut = empresaDto.nit_rut;
+    empresa.nombreComercialDelNegocio = empresaDto.nombre_comercial_del_negocio;
+    empresa.nombreEmpresario = empresaDto.nombre_empresario;
     //TODO: Investigar mejor forma de agregar hora de creacion , cuando se actualiza se borra
     empresa.createdAt = new Date();
     empresa.updatedAt = new Date();

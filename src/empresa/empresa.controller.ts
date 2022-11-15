@@ -10,7 +10,7 @@ import {
 } from '@nestjs/common';
 import { EmpresaService } from './empresa.service';
 import { EmpresaDto } from './dto/empresa.dto';
-import { Empresa } from './entities/empresa.entity';
+import { InformacionGeneral as Empresa } from '../entities/InformacionGeneral';
 import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('empresa')

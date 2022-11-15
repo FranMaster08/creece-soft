@@ -3,7 +3,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { EmpresaModule } from './empresa/empresa.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Empresa } from './empresa/entities/empresa.entity';
+import { InformacionGeneral as Empresa } from './entities/InformacionGeneral';
+import { getMetadataArgsStorage } from 'typeorm';
 
 @Module({
   imports: [
@@ -15,7 +16,7 @@ import { Empresa } from './empresa/entities/empresa.entity';
       username: 'fran',
       password: '1234',
       database: 'creecedb',
-      entities: [Empresa],
+      entities: getMetadataArgsStorage().tables.map((tbl) => tbl.target),
     }),
   ],
   controllers: [AppController],
