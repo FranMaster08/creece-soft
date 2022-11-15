@@ -30,11 +30,11 @@ export class ConsultorController {
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateConsultorDto: ConsultorDto) {
-    return this.consultorService.update(+id, updateConsultorDto);
+    return this.consultorService.update(id, updateConsultorDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.consultorService.remove(+id);
+    return this.consultorService.remove(id);
   }
 }
